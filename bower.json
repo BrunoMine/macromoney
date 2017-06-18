@@ -1,0 +1,14 @@
+{
+    "name": "macromoney",
+    "description": "Sistema de economia para Minetest",
+    "keywords": [
+        "macromoney"
+    ],
+    "homepage": "https://github.com/BrunoMine/macromoney",
+    "screenshots": [
+        "https://raw.githubusercontent.com/BrunoMine/macromoney/master/screenshot.png"
+    ],
+    "authors": [
+        "BrunoMine"
+    ]
+}
