@@ -11,12 +11,12 @@
   ]]
 
 -- Formulario
-local contador_form = "size[8,5]"..
+local contador_form = "size[8,3]"..
 	"label[0,0;Contador de Macros]"..
 	"item_image_button[0,1;2,2;macromoney:maleta_de_macros;maleta_de_macros;]"..
-	"label[2.1,1;Maleta de Macros\nPrecisa de 100 Macros]"..
-	"item_image_button[0,3;2,2;macromoney:pacote_pagamento;pacote_de_pagamento;]"..
-	"label[2.1,3;Pacote de Pagamento\nPrecisa de 10 Macros]"
+	"label[2.1,1;Maleta de Macros\nPrecisa de 100 Macros]"
+	--"item_image_button[0,3;2,2;macromoney:pacote_pagamento;pacote_de_pagamento;]"..
+	--"label[2.1,3;Pacote de Pagamento\nPrecisa de 10 Macros]"
 
 
 
@@ -78,7 +78,7 @@ minetest.register_node("macromoney:contador_de_macros", {
 				player_inv:add_item("main", "macromoney:maleta_de_macros")
 			end
 		end
-		-- Botao de Pacote de Pagamento
+		-- Botao de Pacote de Pagamento [DESCONTINUADO]
 		if fields.pacote_de_pagamento then
 			local player_inv = sender:get_inventory()
 			if not player_inv:room_for_item("main", "macronodes:pacote_pagamento") then
