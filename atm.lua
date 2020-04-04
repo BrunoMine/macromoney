@@ -10,9 +10,9 @@
 	
   ]]
 
--- Caixa de Banco
-minetest.register_node("macromoney:caixa_de_banco", {
-	description = "Caixa de Banco (Depositos e Saques)",
+-- Money machine
+minetest.register_node("macromoney:atm", {
+	description = "Automatic Teller Machine",
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -20,12 +20,12 @@ minetest.register_node("macromoney:caixa_de_banco", {
 	sunlight_propagates = true,
 	light_source = LIGHT_MAX,
 	tiles = {
-		"default_wood.png", -- Cima
-		"default_wood.png", -- Baixo
-		"default_wood.png", -- Lado direito
-		"default_wood.png", -- Lado esquerda
-		"default_wood.png", -- Fundo
-		"macromoney_caixa_frente.png" -- Frente
+		"default_wood.png", -- Top
+		"default_wood.png", -- Bottom
+		"default_wood.png", -- Right
+		"default_wood.png", -- Left
+		"default_wood.png", -- Back
+		"macromoney_caixa_frente.png" -- Front
 	},
 	node_box = {
 		type = "fixed",
@@ -47,37 +47,50 @@ minetest.register_node("macromoney:caixa_de_banco", {
 		local formspec = "size[8,5.5;]"
 			..default.gui_bg
 			..default.gui_bg_img
-			.."label[0.256,0;Voce pode Depositar ou Sacar 100 Macros]"
-			.."button[1,0.5;2,1;sacar;Sacar]" 
-			.."button[5,0.5;2,1;depositar;Depositar]"
+			.."label[0.256,0;You can deposit or withdraw "..macromoney.get_text_number_value("macromoney:money", 100).."]"
+			.."button[1,0.5;2,1;withdraw;Withdraw]" 
+			.."button[5,0.5;2,1;deposit;Deposit]"
 			.."list[current_player;main;0,1.5;8,4;]"
 		
-		minetest.show_formspec(player:get_player_name(), "macromoney:caixa_de_banco", formspec)
+		minetest.show_formspec(player:get_player_name(), "macromoney:atm", formspec)
 	end,
  })
 
--- Receber campos
+-- Receive fields
 minetest.register_on_player_receive_fields(function(player, formname, fields)
-	if formname == "macromoney:caixa_de_banco" then
-		if fields.sacar then
+	if formname == "macromoney:atm" then
+		
+		-- Withdraw
+		if fields.withdraw then
 			local player_name = player:get_player_name()
 			local player_inv = player:get_inventory()
+			
+			-- Check inventory
 			if not player_inv:room_for_item("main", "macromoney:macro 100") then
-				minetest.chat_send_player(player_name, "Inventario Lotado")
+				minetest.chat_send_player(player_name, "Crowded inventory")
 				return true
-			elseif macromoney.subtrair(player_name, "macros", 100) == false then
-				minetest.chat_send_player(player_name, "Voce nao tem Macros suficientes na conta.")
+			
+			-- Check account balance
+			elseif macromoney.get_account(player_name, "macromoney:money") < 100 then
+				minetest.chat_send_player(player_name, "Insufficient balance for this operation.")
 				return true
 			end
+			
+			macromoney.subtract_account(player_name, "macromoney:money", 100)
 			player_inv:add_item("main", "macromoney:macro 100")
-		elseif fields.depositar then
+			
+		-- Deposit
+		elseif fields.deposit then
 			local player_name = player:get_player_name()
 			local player_inv = player:get_inventory()
+			
+			-- Check inventory
 			if not player_inv:contains_item("main", "macromoney:macro 100") then
-				minetest.chat_send_player(player_name, "Macros insuficientes para Depositar (tenha ao menos 100 Macros)")
+				minetest.chat_send_player(player_name, "You have enough money in your inventory.")
 				return true
 			end
-			macromoney.somar(player_name, "macros", 100)
+			
+			macromoney.add_account(player_name, "macromoney:money", 100)
 			player_inv:remove_item("main", "macromoney:macro 100")
 		end
 	end

@@ -26,27 +26,27 @@ local function has_safe_privilege(meta, player)
 	return true
 end
 
-minetest.register_node("macromoney:cofre", {
-        description = "Cofre",
+minetest.register_node("macromoney:safe_box", {
+        description = "Safe Box",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	tiles = {"safe_side.png",
-	                "macromoney_cofre_side.png",
-			"macromoney_cofre_side.png",
-			"macromoney_cofre_side.png",
-			"macromoney_cofre_side.png",
-			"macromoney_cofre_front.png",},
+	tiles = {"macromoney_safe_box_side.png",
+	                "macromoney_safe_box_side.png",
+			"macromoney_safe_box_side.png",
+			"macromoney_safe_box_side.png",
+			"macromoney_safe_box_side.png",
+			"macromoney_safe_box_front.png",},
 	is_ground_content = false,
 	groups = {cracky=1},
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", "Cofre (Trancado por "..
+		meta:set_string("infotext", "Safe Box (Owner "..
 				meta:get_string("owner")..")")
 	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("infotext", "Cofre")
+		meta:set_string("infotext", "Safe Box")
 		meta:set_string("owner", "")
 		local inv = meta:get_inventory()
 		inv:set_size("main", 6*2)
@@ -60,29 +60,29 @@ minetest.register_node("macromoney:cofre", {
 		local meta = minetest.get_meta(pos)
 		if not has_safe_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
-					" tentou acessar um cofre pertencente a "..
+					" try access safe box of "..
 					meta:get_string("owner").." at "..
 					minetest.pos_to_string(pos))
 			return 0
 		end
 		return count
 	end,
-    allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if not has_safe_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
-					" tentou acessar um cofre pertencente a "..
+					" try access safe box of "..
 					meta:get_string("owner").." at "..
 					minetest.pos_to_string(pos))
 			return 0
 		end
 		return stack:get_count()
 	end,
-    allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
 		local meta = minetest.get_meta(pos)
 		if not has_safe_privilege(meta, player) then
 			minetest.log("action", player:get_player_name()..
-					" tentou acessar um cofre pertencente a "..
+					" try access safe box of "..
 					meta:get_string("owner").." at "..
 					minetest.pos_to_string(pos))
 			return 0
@@ -91,22 +91,22 @@ minetest.register_node("macromoney:cofre", {
 	end,
 	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
 		minetest.log("action", player:get_player_name()..
-				" moveu algo no cofre em "..minetest.pos_to_string(pos))
+				" move an item in safe box of "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
-				" moveu algo no cofre em "..minetest.pos_to_string(pos))
+				" move an item in safe box of "..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
 		minetest.log("action", player:get_player_name()..
-				" moveu algo no cofre em "..minetest.pos_to_string(pos))
+				" move an item in safe box of "..minetest.pos_to_string(pos))
 	end,
 	on_rightclick = function(pos, node, clicker)
 		local meta = minetest.get_meta(pos)
 		if has_safe_privilege(meta, clicker) then
 			minetest.show_formspec(
 				clicker:get_player_name(),
-				"macromoney:cofre",
+				"macromoney:safe_box",
 				default.get_safe_formspec(pos)
 			)
 		end

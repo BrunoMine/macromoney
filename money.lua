@@ -10,18 +10,27 @@
 	
   ]]
 
+-- Register macro money
+macromoney.register_value("macromoney:money", {
+	description = "Macro money",
+	specimen_prefix = "M¢",
+	value_type = "number",
+	initial_value = 0,
+	tag = "money",
+})
+
 -- Macro
 minetest.register_craftitem("macromoney:macro", {
-    description = "Macro",
-    inventory_image = "macromoney_macro.png",
-        stack_max = 100,
+	description = "Macro",
+	inventory_image = "macromoney_macro.png",
+	stack_max = 100,
 })
 
 -- Maleta de Macros
 minetest.register_craftitem("macromoney:maleta_de_macros", {
-    description = "Maleta de Macros",
-    inventory_image = "macromoney_maleta_de_macros.png",
-        stack_max = 5,
+	description = "Maleta de Macros",
+	inventory_image = "macromoney_maleta_de_macros.png",
+	stack_max = 5,
 })
 
 -- Maleta de Macros
