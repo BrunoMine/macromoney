@@ -1,18 +1,18 @@
 --[[
-	Mod Macromoney para Minetest
-	Copyright (C) 2017 BrunoMine (https://github.com/BrunoMine)
+	Mod Minemacro for Minetest
+	Copyright (C) 2020 BrunoMine (https://github.com/BrunoMine)
 	
-	Recebeste uma cópia da GNU Lesser General
-	Public License junto com esse software,
-	se não, veja em <http://www.gnu.org/licenses/>. 
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	
 	Macros
-	
   ]]
+
+local S = macromoney.S
 
 -- Register macro money
 macromoney.register_value("macromoney:money", {
-	description = "Macro money",
+	description = S("Macro money"),
 	specimen_prefix = "M¢",
 	value_type = "number",
 	initial_value = 0,
@@ -21,22 +21,21 @@ macromoney.register_value("macromoney:money", {
 
 -- Macro
 minetest.register_craftitem("macromoney:macro", {
-	description = "Macro",
+	description = S("Macro"),
 	inventory_image = "macromoney_macro.png",
 	stack_max = 100,
 })
 
--- Maleta de Macros
-minetest.register_craftitem("macromoney:maleta_de_macros", {
-	description = "Maleta de Macros",
-	inventory_image = "macromoney_maleta_de_macros.png",
+-- Suitcase of Macros
+minetest.register_craftitem("macromoney:suitcase_of_macros", {
+	description = S("Suitcase of Macros"),
+	inventory_image = "macromoney_suitcase_of_macros.png",
 	stack_max = 5,
 })
 
--- Maleta de Macros
 minetest.register_craft({
 	output = "macromoney:macro 100",
 	recipe = {
-		{"macromoney:maleta_de_macros"},
+		{"macromoney:suitcase_of_macros"},
 	}
 })

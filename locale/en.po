@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-04 22:22-0300\n"
+"PO-Revision-Date: 2020-04-04 22:25-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: atm.lua
+msgid "Automatic Teller Machine"
+msgstr "Automatic Teller Machine"
+
+#: atm.lua
+msgid "You can deposit or withdraw @1"
+msgstr "You can deposit or withdraw @1"
+
+#: atm.lua
+msgid "Withdraw"
+msgstr "Withdraw"
+
+#: atm.lua
+msgid "Deposit"
+msgstr "Deposit"
+
+#: atm.lua
+msgid "Crowded inventory."
+msgstr "Crowded inventory."
+
+#: atm.lua
+msgid "Account balance is insufficient."
+msgstr "Account balance is insufficient."
+
+#: atm.lua
+msgid "You cashed out @1."
+msgstr "You cashed out @1."
+
+#: commands.lua
+msgid "Accounts manager"
+msgstr "Accounts manager"
+
+#: commands.lua
+msgid "[<account> | <add/subtract/set> <value_id>]"
+msgstr "[<account> | <add/subtract/set> <value_id>]"
+
+#: commands.lua
+msgid "Manage accounts"
+msgstr "Manage accounts"
+
+#: commands.lua
+msgid "Your account"
+msgstr "Your account"
+
+#: commands.lua
+msgid "Account not exist."
+msgstr "Account not exist."
+
+#: commands.lua
+msgid "@1 account"
+msgstr "@1 account"
+
+#: commands.lua
+msgid "Ivalid value type '@1'."
+msgstr "Ivalid value type '@1'."
+
+#: commands.lua
+msgid "Invalid operation. '@1' is not numeric value."
+msgstr "Invalid operation. '@1' is not numeric value."
+
+#: commands.lua
+msgid "Subtracted value. New balance is @1."
+msgstr "Subtracted value. New balance is @1."
+
+#: commands.lua
+msgid "Added value. New balance is @1."
+msgstr "Added value. New balance is @1."
+
+#: commands.lua
+msgid "Setted value. New value is @1."
+msgstr "Setted value. New value is @1."
+
+#: money.lua
+msgid "Macro money"
+msgstr "Macro money"
+
+#: money.lua
+msgid "Macro"
+msgstr "Macro"
+
+#: money.lua
+msgid "Suitcase of Macros"
+msgstr "Suitcase of Macros"
+
+#: safe_box.lua
+msgid "Safe Box"
+msgstr "Safe Box"
+
+#~ msgid "Insufficient balance for this operation."
+#~ msgstr "Insufficient balance for this operation."
+
+#~ msgid "You have enough money in your inventory."
+#~ msgstr "You have enough money in your inventory."

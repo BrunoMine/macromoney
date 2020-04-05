@@ -10,11 +10,13 @@
 	
   ]]
 
+local S = macromoney.S
+
 -- Accounts manager privilege
-minetest.register_privilege("macromoney_admin", "Accounts manager")
+minetest.register_privilege("macromoney_admin", S("Accounts manager"))
 
 -- Get text number value
-local to_text = macromoney.get_text_number_value
+local to_text = macromoney.get_value_to_text
 
 -- Send account on chat
 local send_acct_on_chat = function(name, acct_name)
@@ -29,14 +31,15 @@ end
 -- "macromoney" command
 minetest.register_chatcommand("macromoney", {
 	privs = {macromoney_admin = true},
-	params = "[<account> | <add/subtract/set> <value_id>]",
-	description = "Manage accounts",
+	params = S("[<account> | <add/subtract/set> <value_id>]"),
+	description = S("Manage accounts"),
 	func = function(name,  param)
 
 		-- Consult self account
 		if param == "" then --/macromoney
-			minetest.chat_send_player(name, "Your account")
+			minetest.chat_send_player(name, "***** "..S("Your account").." *****")
 			send_acct_on_chat(name, name)
+			return true
 		end
 
 		local m = string.split(param, " ")
@@ -44,12 +47,12 @@ minetest.register_chatcommand("macromoney", {
 		
 		-- Check account
 		if macromoney.exist_account(param1) == false then
-			return false, "Account not exist."
+			return false, S("Account not exist.")
 		end
 		
 		-- Consultar conta de outro
 		if param1 and not param2 then --/macromoney <conta>
-			minetest.chat_send_player(name, param1.." account")
+			minetest.chat_send_player(name, "*** "..S("@1 account", param1).." ***")
 			send_acct_on_chat(name, param1)
 			return
 		end
@@ -63,13 +66,13 @@ minetest.register_chatcommand("macromoney", {
 			
 			-- Check value id
 			if macromoney.registered_values[param3] == nil then
-				return false, "Ivalid value type '"..param3.."'"
+				return false, S("Ivalid value type '@1'.", param1)
 			end
 			
 			-- Check and adjust numeric value
 			if  macromoney.registered_values[param3].value_type == "number" then
 				if not tonumber(param4) then
-					return false, "Invalid operation. '"..param3.."' is not numeric value."
+					return false, S("Invalid operation. '@1' is not numeric value.", param3)
 				end
 				param4 = tonumber(param4)
 			end
@@ -79,7 +82,7 @@ minetest.register_chatcommand("macromoney", {
 				
 				macromoney.subtract_account(param1, param3, param4)
 				
-				return true, "Subtracted value. New balance is "..to_text(param3, macromoney.get_account(param1, param3))
+				return true, S("Subtracted value. New balance is @1.", to_text(param3, macromoney.get_account(param1, param3)))
 			end
 			
 			-- Add
@@ -87,7 +90,7 @@ minetest.register_chatcommand("macromoney", {
 				
 				macromoney.add_account(param1, param3, param4)
 				
-				return true, "Added value. New balance is "..to_text(param3, macromoney.get_account(param1, param3))
+				return true, S("Added value. New balance is @1.", to_text(param3, macromoney.get_account(param1, param3)))
 			end
 			
 			-- Set
@@ -95,7 +98,7 @@ minetest.register_chatcommand("macromoney", {
 				
 				macromoney.set_account(param1, param3, param4)
 				
-				return true, "Setted value. New value is "..to_text(param3, macromoney.get_account(param1, param3))
+				return true, S("Setted value. New value is @1.", to_text(param3, macromoney.get_account(param1, param3)))
 			end
 			
 		end

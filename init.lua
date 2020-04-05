@@ -12,10 +12,13 @@ local modpath = minetest.get_modpath("macromoney")
 -- Global table
 macromoney = {}
 
+dofile(modpath .. "/translator.lua")
 dofile(modpath .. "/data_base.lua")
 dofile(modpath .. "/api.lua")
 
 dofile(modpath .. "/commands.lua") 
+
+dofile(modpath .. "/aliases.lua") 
 
 -- Custom
 dofile(modpath .. "/money.lua") 

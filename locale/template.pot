@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-04 22:24-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: atm.lua
+msgid "Automatic Teller Machine"
+msgstr ""
+
+#: atm.lua
+msgid "You can deposit or withdraw @1"
+msgstr ""
+
+#: atm.lua
+msgid "Withdraw"
+msgstr ""
+
+#: atm.lua
+msgid "Deposit"
+msgstr ""
+
+#: atm.lua
+msgid "Crowded inventory."
+msgstr ""
+
+#: atm.lua
+msgid "Account balance is insufficient."
+msgstr ""
+
+#: atm.lua
+msgid "You cashed out @1."
+msgstr ""
+
+#: commands.lua
+msgid "Accounts manager"
+msgstr ""
+
+#: commands.lua
+msgid "[<account> | <add/subtract/set> <value_id>]"
+msgstr ""
+
+#: commands.lua
+msgid "Manage accounts"
+msgstr ""
+
+#: commands.lua
+msgid "Your account"
+msgstr ""
+
+#: commands.lua
+msgid "Account not exist."
+msgstr ""
+
+#: commands.lua
+msgid "@1 account"
+msgstr ""
+
+#: commands.lua
+msgid "Ivalid value type '@1'."
+msgstr ""
+
+#: commands.lua
+msgid "Invalid operation. '@1' is not numeric value."
+msgstr ""
+
+#: commands.lua
+msgid "Subtracted value. New balance is @1."
+msgstr ""
+
+#: commands.lua
+msgid "Added value. New balance is @1."
+msgstr ""
+
+#: commands.lua
+msgid "Setted value. New value is @1."
+msgstr ""
+
+#: money.lua
+msgid "Macro money"
+msgstr ""
+
+#: money.lua
+msgid "Macro"
+msgstr ""
+
+#: money.lua
+msgid "Suitcase of Macros"
+msgstr ""
+
+#: safe_box.lua
+msgid "Safe Box"
+msgstr ""

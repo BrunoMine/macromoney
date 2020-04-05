@@ -8,53 +8,9 @@
 	API
   ]]
 
--- Basic methods
-
--- Exists account
-macromoney.exist_account = function(name)
-	return macromoney.db.exist(name)
-end
-
--- Exists account value
-macromoney.exist_account_value = function(name, value_type)
-	local data = macromoney.db.get(name)
-	if data[value_type] ~= nil then 
-		return true
-	else
-		return false
-	end
-end
-
--- Set
-macromoney.set_account = function(name, value_type, new_value)
-	local data = macromoney.db.get(name)
-	data[value_type] = new_value
-	return macromoney.db.set(name, data)
-end
-
--- Get
-macromoney.get_account = function(name, value_type)
-	return macromoney.db.get(name)[value_type]
-end
-
--- Add
-macromoney.add_account = function(name, value_type, add_value)
-	local data = macromoney.db.get(name)
-	data[value_type] = data[value_type] + add_value
-	macromoney.db.set(name, data)
-end
-
--- Subtract
-macromoney.subtract_account = function(name, value_type, subtract_value)
-	local data = macromoney.db.get(name)
-	data[value_type] = data[value_type] - subtract_value
-	macromoney.db.set(name, data)
-end
-
 
 -- Tags
 macromoney.tags = {}
-
 
 -- Registered values
 macromoney.registered_values = {}
@@ -69,9 +25,72 @@ macromoney.register_value = function(value_id, def)
 	end
 end
 
+-- Get value ID
+macromoney.get_value_id = function(tag_or_id)
+	if macromoney.tags[tag_or_id] then
+		return macromoney.tags[tag_or_id]
+	end
+	return tag_or_id
+end
+local get_id = macromoney.get_value_id
+
+-- Basic methods
+
+-- Exists account
+macromoney.exist_account = function(name)
+	return macromoney.db.exist(name)
+end
+
+-- Exists account value
+macromoney.exist_account_value = function(name, value_id)
+	local data = macromoney.db.get(name)
+	if data[get_id(value_id)] ~= nil then 
+		return true
+	else
+		return false
+	end
+end
+
+-- Set
+macromoney.set_account = function(name, value_id, new_value)
+	local data = macromoney.db.get(name)
+	data[get_id(value_id)] = new_value
+	return macromoney.db.set(name, data)
+end
+
+-- Get
+macromoney.get_account = function(name, value_id)
+	return macromoney.db.get(name)[get_id(value_id)]
+end
+
+-- Add
+macromoney.add_account = function(name, value_id, add_value)
+	local data = macromoney.db.get(name)
+	data[get_id(value_id)] = data[get_id(value_id)] + add_value
+	macromoney.db.set(name, data)
+end
+
+-- Subtract
+macromoney.subtract_account = function(name, value_id, subtract_value)
+	local data = macromoney.db.get(name)
+	data[get_id(value_id)] = data[get_id(value_id)] - subtract_value
+	macromoney.db.set(name, data)
+end
+
+-- Check amount
+macromoney.has_amount = function(name, value_id, amount)
+	local data = macromoney.db.get(name)
+	if data[get_id(value_id)] >= amount then
+		return true
+	end
+	return false
+end
+
+
+
 -- Get text value
-macromoney.get_text_number_value = function(value_id, value)
-	local def = macromoney.registered_values[value_id]
+macromoney.get_value_to_text = function(value_id, value)
+	local def = macromoney.registered_values[macromoney.get_value_id(value_id)]
 	local prefix = def.specimen_prefix or ""
 	local text
 	
@@ -98,6 +117,8 @@ macromoney.get_text_number_value = function(value_id, value)
 	
 	return text
 end
+
+
 
 -- Check and register player accounts
 minetest.register_on_joinplayer(function(player)

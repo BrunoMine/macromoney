@@ -1,18 +1,18 @@
 --[[
-	Mod Macromoney para Minetest
-	Copyright (C) 2017 BrunoMine (https://github.com/BrunoMine)
+	Mod Minemacro for Minetest
+	Copyright (C) 2020 BrunoMine (https://github.com/BrunoMine)
 	
-	Recebeste uma cópia da GNU Lesser General
-	Public License junto com esse software,
-	se não, veja em <http://www.gnu.org/licenses/>. 
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	
-	Nodes
-	
+	ATM
   ]]
 
--- Money machine
+local S = macromoney.S
+
+-- ATM
 minetest.register_node("macromoney:atm", {
-	description = "Automatic Teller Machine",
+	description = S("Automatic Teller Machine"),
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -47,9 +47,9 @@ minetest.register_node("macromoney:atm", {
 		local formspec = "size[8,5.5;]"
 			..default.gui_bg
 			..default.gui_bg_img
-			.."label[0.256,0;You can deposit or withdraw "..macromoney.get_text_number_value("macromoney:money", 100).."]"
-			.."button[1,0.5;2,1;withdraw;Withdraw]" 
-			.."button[5,0.5;2,1;deposit;Deposit]"
+			.."label[0.256,0;"..S("You can deposit or withdraw @1", macromoney.get_value_to_text("macromoney:money", 100)).."]"
+			.."button[1,0.5;2,1;withdraw;"..S("Withdraw").."]" 
+			.."button[5,0.5;2,1;deposit;"..S("Deposit").."]"
 			.."list[current_player;main;0,1.5;8,4;]"
 		
 		minetest.show_formspec(player:get_player_name(), "macromoney:atm", formspec)
@@ -67,12 +67,12 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			
 			-- Check inventory
 			if not player_inv:room_for_item("main", "macromoney:macro 100") then
-				minetest.chat_send_player(player_name, "Crowded inventory")
+				minetest.chat_send_player(player_name, S("Crowded inventory."))
 				return true
 			
 			-- Check account balance
 			elseif macromoney.get_account(player_name, "macromoney:money") < 100 then
-				minetest.chat_send_player(player_name, "Insufficient balance for this operation.")
+				minetest.chat_send_player(player_name, S("Account balance is insufficient."))
 				return true
 			end
 			
@@ -86,7 +86,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			
 			-- Check inventory
 			if not player_inv:contains_item("main", "macromoney:macro 100") then
-				minetest.chat_send_player(player_name, "You have enough money in your inventory.")
+				minetest.chat_send_player(player_name, S("You cashed out @1.", 100))
 				return true
 			end
 			

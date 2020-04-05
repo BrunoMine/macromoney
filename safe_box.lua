@@ -1,14 +1,14 @@
 --[[
-	Mod Macromoney para Minetest
-	Copyright (C) 2017 BrunoMine (https://github.com/BrunoMine)
+	Mod Minemacro for Minetest
+	Copyright (C) 2020 BrunoMine (https://github.com/BrunoMine)
 	
-	Recebeste uma cópia da GNU Lesser General
-	Public License junto com esse software,
-	se não, veja em <http://www.gnu.org/licenses/>. 
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	
-	Cofre
-	
+	Safe Box
   ]]
+
+local S = macromoney.S
 
 function default.get_safe_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
@@ -27,7 +27,7 @@ local function has_safe_privilege(meta, player)
 end
 
 minetest.register_node("macromoney:safe_box", {
-        description = "Safe Box",
+        description = S("Safe Box"),
 	paramtype = "light",
 	paramtype2 = "facedir",
 	tiles = {"macromoney_safe_box_side.png",

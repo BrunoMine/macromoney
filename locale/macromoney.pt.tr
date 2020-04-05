@@ -1,0 +1,24 @@
+### Arquivo gerado por macromoney apartir de pt.po
+# textdomain: macromoney
+Manage accounts=Gerenciar contas
+Setted value. New value is @1.=Valor definido. O novo saldo é @1.
+Automatic Teller Machine=Caixa de Autoatendimento
+You can deposit or withdraw @1=Você pode depositar ou sacar @1
+Withdraw=Sacar
+Macro money=Dinheiro Macro
+You cashed out @1.=Você sacou @1.
+Subtracted value. New balance is @1.=Valor subtraído. Novo saldo é @1.
+Your account=Sua conta
+Account balance is insufficient.=O saldo da conta é insuficiente.
+Macro=Macro
+Deposit=Depositar
+[<account> | <add/subtract/set> <value_id>]=[<conta> | <add/subtract/set> <ID_do_valor>]
+Account not exist.=Conta inexistente.
+Crowded inventory.=Inventário lotado.
+Ivalid value type '@1'.=Tipo de valor inválido '@1'.
+@1 account=Conta @1
+Invalid operation. '@1' is not numeric value.=Operação inválida. '@1' não é um valor numérico.
+Accounts manager=Gerenciador de contas
+Suitcase of Macros=Maleta de Macros
+Added value. New balance is @1.=Valor adicionado. Novo saldo é @1.
+Safe Box=Cofre

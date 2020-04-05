@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-04 22:22-0300\n"
+"PO-Revision-Date: 2020-04-04 22:23-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: atm.lua
+msgid "Automatic Teller Machine"
+msgstr "Caixa de Autoatendimento"
+
+#: atm.lua
+msgid "You can deposit or withdraw @1"
+msgstr "Você pode depositar ou sacar @1"
+
+#: atm.lua
+msgid "Withdraw"
+msgstr "Sacar"
+
+#: atm.lua
+msgid "Deposit"
+msgstr "Depositar"
+
+#: atm.lua
+msgid "Crowded inventory."
+msgstr "Inventário lotado."
+
+#: atm.lua
+msgid "Account balance is insufficient."
+msgstr "O saldo da conta é insuficiente."
+
+#: atm.lua
+msgid "You cashed out @1."
+msgstr "Você sacou @1."
+
+#: commands.lua
+msgid "Accounts manager"
+msgstr "Gerenciador de contas"
+
+#: commands.lua
+msgid "[<account> | <add/subtract/set> <value_id>]"
+msgstr "[<conta> | <add/subtract/set> <ID_do_valor>]"
+
+#: commands.lua
+msgid "Manage accounts"
+msgstr "Gerenciar contas"
+
+#: commands.lua
+msgid "Your account"
+msgstr "Sua conta"
+
+#: commands.lua
+msgid "Account not exist."
+msgstr "Conta inexistente."
+
+#: commands.lua
+msgid "@1 account"
+msgstr "Conta @1"
+
+#: commands.lua
+msgid "Ivalid value type '@1'."
+msgstr "Tipo de valor inválido '@1'."
+
+#: commands.lua
+msgid "Invalid operation. '@1' is not numeric value."
+msgstr "Operação inválida. '@1' não é um valor numérico."
+
+#: commands.lua
+msgid "Subtracted value. New balance is @1."
+msgstr "Valor subtraído. Novo saldo é @1."
+
+#: commands.lua
+msgid "Added value. New balance is @1."
+msgstr "Valor adicionado. Novo saldo é @1."
+
+#: commands.lua
+msgid "Setted value. New value is @1."
+msgstr "Valor definido. O novo saldo é @1."
+
+#: money.lua
+msgid "Macro money"
+msgstr "Dinheiro Macro"
+
+#: money.lua
+msgid "Macro"
+msgstr "Macro"
+
+#: money.lua
+msgid "Suitcase of Macros"
+msgstr "Maleta de Macros"
+
+#: safe_box.lua
+msgid "Safe Box"
+msgstr "Cofre"
+
+#~ msgid "Insufficient balance for this operation."
+#~ msgstr "Saldo insuficiente para essa operação."
+
+#~ msgid "You have enough money in your inventory."
+#~ msgstr "Você não tem dinheiro suficiente em seu inventário."

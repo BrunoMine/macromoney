@@ -52,6 +52,7 @@ Veja os métodos de acordo com sua finalidade.
 * `macromoney.register_value(value_id, {definições de valor})`: Register value
 
 #### Manipular valores em contas
+* `macromoney.has_amount(player_name, value_id, amount)`: Verifica se possui um montante na conta
 * `macromoney.get_account(player_name, value_id)`: Pega um valor em uma conta
 * `macromoney.add_account(player_name, value_id, add_value)`: Adiciona um valor em uma conta
 * `macromoney.subtract_account(player_name, value_id, subtract_value)`: Subtrai um valor em uma conta
