@@ -1,11 +1,11 @@
-### Arquivo gerado por macromoney apartir de pt.po
+### Arquivo gerado por macromoney apartir de pt_PT.po
 # textdomain: macromoney
 Manage accounts=Gerenciar contas
 Setted value. New value is @1.=Valor definido. O novo saldo é @1.
 Automatic Teller Machine=Caixa de Autoatendimento
 You can deposit or withdraw @1=Você pode depositar ou sacar @1
 Withdraw=Sacar
-You deposited @1.=Você pode depositar @1.
+You deposited @1.=Você pode depositar ou sacar @1.
 Macro money=Dinheiro Macro
 You cashed out @1.=Você sacou @1.
 Subtracted value. New balance is @1.=Valor subtraído. Novo saldo é @1.

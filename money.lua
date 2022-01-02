@@ -1,6 +1,6 @@
 --[[
 	Mod Minemacro for Minetest
-	Copyright (C) 2020 BrunoMine (https://github.com/BrunoMine)
+	Copyright (C) 2022 BrunoMine (https://github.com/BrunoMine)
 	
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
@@ -27,6 +27,7 @@ minetest.register_craftitem("macromoney:macro", {
 })
 
 -- Suitcase of Macros
+--[[ Suspended
 minetest.register_craftitem("macromoney:suitcase_of_macros", {
 	description = S("Suitcase of Macros"),
 	inventory_image = "macromoney_suitcase_of_macros.png",
@@ -39,3 +40,4 @@ minetest.register_craft({
 		{"macromoney:suitcase_of_macros"},
 	}
 })
+]]

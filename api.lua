@@ -1,6 +1,6 @@
 --[[
 	Mod Minemacro for Minetest
-	Copyright (C) 2020 BrunoMine (https://github.com/BrunoMine)
+	Copyright (C) 2022 BrunoMine (https://github.com/BrunoMine)
 	
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
@@ -99,15 +99,15 @@ macromoney.get_value_to_text = function(value_id, value)
 	
 		-- Positive balance
 		if value > 0 then
-			text = minetest.colorize("#07ff07", prefix .. value)
+			text = minetest.colorize("#07ff07", prefix .. " " .. value)
 			
 		-- Negative balance
 		elseif value < 0 then
-			text = minetest.colorize("#ff0707", "-" .. prefix .. math.abs(value)) 
+			text = minetest.colorize("#ff0707", "-" .. prefix .. " " ..  math.abs(value)) 
 		
 		-- Zero
 		else
-			text = prefix .. value
+			text = prefix .. " " ..  value
 		end
 	
 	-- Text type

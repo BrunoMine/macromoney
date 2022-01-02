@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-04 22:22-0300\n"
-"PO-Revision-Date: 2020-04-04 22:23-0300\n"
+"POT-Creation-Date: 2022-01-02 11:24-0300\n"
+"PO-Revision-Date: 2022-01-02 11:34-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 3.0\n"
 
 #: atm.lua
 msgid "Automatic Teller Machine"
@@ -44,6 +44,14 @@ msgstr "O saldo da conta é insuficiente."
 #: atm.lua
 msgid "You cashed out @1."
 msgstr "Você sacou @1."
+
+#: atm.lua
+msgid "Not enough money in your inventory."
+msgstr "Você não tem dinheiro suficiente em seu inventário."
+
+#: atm.lua
+msgid "You deposited @1."
+msgstr "Você pode depositar ou sacar @1."
 
 #: commands.lua
 msgid "Accounts manager"
@@ -107,6 +115,3 @@ msgstr "Cofre"
 
 #~ msgid "Insufficient balance for this operation."
 #~ msgstr "Saldo insuficiente para essa operação."
-
-#~ msgid "You have enough money in your inventory."
-#~ msgstr "Você não tem dinheiro suficiente em seu inventário."

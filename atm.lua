@@ -76,6 +76,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 				return true
 			end
 			
+			minetest.chat_send_player(player_name, S("You cashed out @1.", 100))
 			macromoney.subtract_account(player_name, "macromoney:money", 100)
 			player_inv:add_item("main", "macromoney:macro 100")
 			
@@ -86,10 +87,11 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 			
 			-- Check inventory
 			if not player_inv:contains_item("main", "macromoney:macro 100") then
-				minetest.chat_send_player(player_name, S("You cashed out @1.", 100))
+				minetest.chat_send_player(player_name, S("Not enough money in your inventory."))
 				return true
 			end
 			
+			minetest.chat_send_player(player_name, S("You deposited @1.", 100))
 			macromoney.add_account(player_name, "macromoney:money", 100)
 			player_inv:remove_item("main", "macromoney:macro 100")
 		end
