@@ -11,7 +11,7 @@
 local S = macromoney.S
 
 -- Register macro money
-macromoney.register_value("macromoney:money", {
+macromoney.register_value("macromoney:macro", {
 	description = S("Macro money"),
 	specimen_prefix = "M¢",
 	value_type = "number",
